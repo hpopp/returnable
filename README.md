@@ -49,7 +49,7 @@ def fetch_active_user(id) do
       return User.fetch(id)
     end
   end
-  :not_found # Shouldn't this be return nil?
+  return nil # Not necessary, but probably makes you feel warm and fuzzy
 end
 ```
 
