@@ -6,7 +6,7 @@ Return statement for Elixir.
 
 ## Installation
 
-Add `returnable` to your list of dependencies in `mix.exs`:
+Add `returnable` to your list of dependencies in `mix.exs` if you don't like your team:
 
 ```elixir
 def deps do
@@ -17,7 +17,7 @@ end
 ```
 
 ## Quickstart Example
-It's so easy to get started you'll feel dumber using it.
+Add `use Returnable` to your module and define returnable functions with `defr`. It's so easy to get started you'll feel dumber for using it.
 
 ```elixir
 defmodule YourModule do
@@ -41,9 +41,9 @@ iex> YourModule.sample_fun(7)
 This package allows you to write really terrible code like:
 
 ```elixir
-def fetch_active_user(id) do
+defr fetch_active_user(id) do
   if User.admin?(id) do
-    return nil
+    return Admin.fetch(id)
   else
     if User.active?(id) do
       return User.fetch(id)
@@ -56,7 +56,7 @@ end
 Having trouble with `Enum` functions? No worries, you don't need to understand them anymore.
 
 ```elixir
-def fetch_user(users, id) do
+defr fetch_user(users, id) do
   for user <- users do
     if user.id == id, do: return user
   end
